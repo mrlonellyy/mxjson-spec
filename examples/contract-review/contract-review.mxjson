@@ -1,0 +1,166 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "contract-review",
+    "name": "合同风险智能审核",
+    "author": "MxJSON Team",
+    "description": "基于AI的合同风险自动识别与评估系统，支持人工复核",
+    "version": "1.0.0",
+    "tags": ["legal", "contract", "risk-assessment", "enterprise"],
+    "license": "MIT"
+  },
+  "capability": {
+    "type": "workflow",
+    "inputs": {
+      "contract_text": {
+        "type": "string",
+        "label": "合同内容",
+        "description": "请输入需要审核的合同全文",
+        "required": true,
+        "validation": {
+          "minLength": 100,
+          "maxLength": 100000
+        }
+      },
+      "contract_type": {
+        "type": "string",
+        "label": "合同类型",
+        "required": false,
+        "default": "auto",
+        "validation": {
+          "enum": ["auto", "sales", "purchase", "employment", "lease", "service"]
+        }
+      }
+    },
+    "outputs": {
+      "risk_level": {
+        "type": "string",
+        "description": "整体风险等级：high/medium/low"
+      },
+      "risk_score": {
+        "type": "number",
+        "description": "风险评分 0-100"
+      },
+      "risk_items": {
+        "type": "array",
+        "description": "识别到的风险条款列表"
+      },
+      "suggestions": {
+        "type": "array",
+        "description": "修改建议列表"
+      },
+      "reviewed_by": {
+        "type": "string",
+        "description": "审核人（AI或人工）"
+      }
+    },
+    "steps": [
+      {
+        "id": "extract_clauses",
+        "name": "条款提取",
+        "type": "llm",
+        "config": {
+          "prompt": "请从以下合同中提取关键条款，包括：付款条款、违约责任、免责条款、争议解决等...",
+          "model": "gpt-4"
+        },
+        "next": "risk_analysis"
+      },
+      {
+        "id": "risk_analysis",
+        "name": "风险分析",
+        "type": "llm",
+        "config": {
+          "prompt": "基于提取的条款，分析以下风险点...",
+          "model": "gpt-4",
+          "temperature": 0.2
+        },
+        "next": "check_high_risk"
+      },
+      {
+        "id": "check_high_risk",
+        "name": "高风险检查",
+        "type": "condition",
+        "config": {
+          "expression": "risk_score > 70"
+        },
+        "next": {
+          "true": "human_review",
+          "false": "generate_report"
+        }
+      },
+      {
+        "id": "human_review",
+        "name": "人工复核",
+        "type": "human_review",
+        "config": {
+          "message": "发现高风险条款，请人工复核确认",
+          "timeout_minutes": 60
+        },
+        "next": "generate_report"
+      },
+      {
+        "id": "generate_report",
+        "name": "生成报告",
+        "type": "llm",
+        "config": {
+          "prompt": "生成结构化的合同审核报告...",
+          "output_format": "json"
+        }
+      }
+    ],
+    "model": {
+      "provider": "openai",
+      "name": "gpt-4",
+      "parameters": {
+        "temperature": 0.3,
+        "max_tokens": 4000
+      }
+    }
+  },
+  "pricing": {
+    "model": "per_call",
+    "currency": "CNY",
+    "price": 2.0,
+    "unit": "call",
+    "trial": {
+      "enabled": true,
+      "limit": 5
+    }
+  },
+  "audit": {
+    "enabled": true,
+    "retention_days": 730,
+    "sensitive_fields": ["party_a_id", "party_b_id", "bank_account"],
+    "mask_pattern": "****"
+  },
+  "human_review": {
+    "enabled": true,
+    "trigger": "confidence_threshold",
+    "threshold": 0.7,
+    "timeout_minutes": 60,
+    "fallback_action": "escalate"
+  },
+  "ui": {
+    "type": "form",
+    "theme": "professional",
+    "components": [
+      {
+        "type": "select",
+        "id": "type_selector",
+        "label": "合同类型",
+        "bind": "inputs.contract_type"
+      },
+      {
+        "type": "textarea",
+        "id": "contract_input",
+        "label": "合同内容",
+        "bind": "inputs.contract_text"
+      },
+      {
+        "type": "button",
+        "id": "submit_btn",
+        "label": "开始审核"
+      }
+    ]
+  }
+}

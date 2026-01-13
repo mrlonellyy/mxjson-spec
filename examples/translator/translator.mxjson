@@ -1,0 +1,106 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "smart-translator",
+    "name": "智能多语言翻译",
+    "author": "MxJSON Team",
+    "description": "支持多语言的智能翻译能力，可保持专业术语一致性",
+    "version": "1.0.0",
+    "tags": ["translation", "nlp", "multilingual"],
+    "license": "MIT"
+  },
+  "capability": {
+    "type": "prompt",
+    "inputs": {
+      "content": {
+        "type": "string",
+        "label": "待翻译内容",
+        "required": true,
+        "validation": {
+          "maxLength": 10000
+        }
+      },
+      "source_language": {
+        "type": "string",
+        "label": "源语言",
+        "required": false,
+        "default": "auto"
+      },
+      "target_language": {
+        "type": "string",
+        "label": "目标语言",
+        "required": true
+      },
+      "domain": {
+        "type": "string",
+        "label": "专业领域",
+        "required": false,
+        "default": "general"
+      }
+    },
+    "outputs": {
+      "translated_text": {
+        "type": "string",
+        "description": "翻译结果"
+      },
+      "detected_language": {
+        "type": "string",
+        "description": "检测到的源语言"
+      },
+      "confidence": {
+        "type": "number",
+        "description": "翻译置信度 0-1"
+      }
+    },
+    "prompt": "你是一位专业的翻译专家。请将以下内容从{{source_language}}翻译成{{target_language}}。专业领域：{{domain}}。\n\n待翻译内容：\n{{content}}\n\n直接输出翻译结果。",
+    "model": {
+      "provider": "openai",
+      "name": "gpt-4",
+      "parameters": {
+        "temperature": 0.3,
+        "max_tokens": 4000
+      }
+    }
+  },
+  "pricing": {
+    "model": "per_call",
+    "currency": "CNY",
+    "price": 0.1,
+    "unit": "call",
+    "trial": {
+      "enabled": true,
+      "limit": 20
+    }
+  },
+  "audit": {
+    "enabled": false
+  },
+  "ui": {
+    "type": "form",
+    "components": [
+      {
+        "type": "select",
+        "id": "source_lang",
+        "label": "源语言",
+        "bind": "inputs.source_language"
+      },
+      {
+        "type": "select",
+        "id": "target_lang",
+        "label": "目标语言",
+        "bind": "inputs.target_language"
+      },
+      {
+        "type": "textarea",
+        "id": "content_input",
+        "label": "待翻译内容",
+        "bind": "inputs.content"
+      },
+      {
+        "type": "button",
+        "id": "translate_btn",
+        "label": "开始翻译"
+      }
+    ]
+  }
+}
